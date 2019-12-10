@@ -1,6 +1,7 @@
 import React from 'react'
 import App from 'next/app'
 import AppNav from '~/components/layout/AppNav'
+import MercureProvider from '~/providers/mercure'
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -17,10 +18,10 @@ class MyApp extends App {
     const { Component, pageProps } = this.props
 
     return (
-      <>
+      <MercureProvider hubUrl={process.env.NEXT_STATIC_HUB_URL}>
         <AppNav />
         <Component {...pageProps} />
-      </>
+      </MercureProvider>
     )
   }
 }

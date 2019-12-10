@@ -2,14 +2,15 @@ import { NextPage } from 'next'
 import styled from 'styled-components'
 import AppHead from '~/components/AppHead'
 import ApiClient from '~/services/api-client'
-import { GetAudioRequest, PostAudioRequest } from '~/@types/api'
+import { AudioRequest } from '~/@types/api'
 import { useRouter } from 'next/router'
 import { YOUTUBE_REGEX } from '~/utils'
+import OutputLog from '~/components/OutputLog'
 
 interface Props {
-  readonly match?: GetAudioRequest
+  readonly match?: AudioRequest
   readonly hasError: boolean
-  readonly request?: PostAudioRequest
+  readonly request?: AudioRequest
 }
 
 const ProcessInner = styled.div``
@@ -30,6 +31,7 @@ const Process: NextPage<Props> = ({ request, hasError, match }) => {
       <AppHead title={`Processing ${request.youtubeUrl}...`} />
       <h1>Processing video...</h1>
       <h2>{request.youtubeUrl}</h2>
+      <OutputLog request={request} />
     </ProcessInner>
   )
 }
