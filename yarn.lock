@@ -913,6 +913,11 @@
   resolved "https://registry.yarnpkg.com/@liinkiing/react-hooks/-/react-hooks-1.1.0.tgz#5ac693697858858234fc10f17e4e84b471aaa51a"
   integrity sha512-Or2iO1iI3kp4vdGdT/OUGxNICyKqmuKJ2RgIarTIasDlQE8vblRtbYK9f7yQm6RB6dHVVeWUsXJkk9jNTPLsuw==
 
+"@liinkiing/use-mercure@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@liinkiing/use-mercure/-/use-mercure-1.0.6.tgz#7fd84894e21e11646292ee25aeba40bea8a2d63f"
+  integrity sha512-S3E1oVMLuo2Rn05M786U4o8PwL6EXTHo2DKTovy1caeL4JBLAyFPTF/rZcLIcdyhQ1nREom7P0MbbGM+LgFrSw==
+
 "@types/eslint-visitor-keys@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@types/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#1ee30d79544ca84d68d4b3cdb0af4f205663dd2d"

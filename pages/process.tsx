@@ -24,7 +24,12 @@ const Process: NextPage<Props> = ({ request, hasError, match }) => {
     router.replace(`/audio/request/${match.id}`)
   }
   if (!request) {
-    return <AppHead title={`Processing`} />
+    return (
+      <ProcessInner>
+        <AppHead title={`Checking video...`} />
+        <h1>Checking video...</h1>
+      </ProcessInner>
+    )
   }
   return (
     <ProcessInner>
