@@ -2,5 +2,8 @@
   "env": {
     "NEXT_STATIC_HUB_URL": "@hub-url",
     "NEXT_STATIC_API_URL":  "@api-url"
+  },
+  "github": {
+    "silent": true
   }
 }
