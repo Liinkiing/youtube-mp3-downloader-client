@@ -23,7 +23,7 @@ const OutputLog: React.FC<Props> = ({ request }) => {
   useMercure<{ request: AudioRequest }>(
     `/audio/request/${request.id}/finish`,
     ({ request }) => {
-      router.replace(`/audio/request/${request.id}`)
+      router.push('/audio/request/[id]', `/audio/request/${request.id}`)
     },
     [lines],
   )

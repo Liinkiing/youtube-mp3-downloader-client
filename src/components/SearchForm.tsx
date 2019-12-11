@@ -1,22 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
 import useForm from 'react-hook-form'
-import { useRouter } from 'next/router'
 import { YOUTUBE_REGEX } from '~/utils'
 
 interface FormValues {
   readonly url: string
 }
 
+interface Props {
+  readonly onVideoSubmitted: (url: string) => void
+}
+
 const SearchFormInner = styled.form`
   padding: 50px;
 `
 
-const SearchForm: React.FC = () => {
-  const router = useRouter()
+const SearchForm: React.FC<Props> = ({ onVideoSubmitted }) => {
   const { register, handleSubmit, errors, formState } = useForm<FormValues>()
   const onSubmit = handleSubmit(data => {
-    router.push(`/process?v=${data.url}`, '/process')
+    onVideoSubmitted(data.url)
   })
 
   return (

@@ -1,11 +1,9 @@
 import { NextPage } from 'next'
-import styled from 'styled-components'
 import AppHead from '~/components/AppHead'
 import ApiClient from '~/services/api-client'
 import { AudioRequest } from '~/@types/api'
 import { useRouter } from 'next/router'
-
-const AudioRequestInner = styled.div``
+import Page from '~/components/layout/Page'
 
 interface Props {
   readonly hasError: boolean
@@ -21,11 +19,11 @@ const AudioRequestShow: NextPage<Props> = ({ hasError, request }) => {
     return null
   }
   return (
-    <AudioRequestInner>
-      <AppHead title={request.audio.title} />
+    <Page>
+      <AppHead title={request.audio.title}/>
       <h1>{request.audio.title}</h1>
       <a href={request.audio._href.download}>Download song</a>
-    </AudioRequestInner>
+    </Page>
   )
 }
 
