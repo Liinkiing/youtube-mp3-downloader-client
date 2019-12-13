@@ -5,10 +5,14 @@ export const MAIN_SHADOW = css`
   box-shadow: 2px 2px 15px rgba(224, 224, 224, 0.4);
 `
 
-export const FOCUS_STATE = (color: string) => css`
+export const FOCUS_STATE = (color: string, options?: { withShadow: boolean }) => css`
   &:focus {
     outline-style: none;
     border: 5px solid ${color};
+    ${options?.withShadow &&
+      css`
+        box-shadow: 2px 7px 15px rgba(200,200,200,0.8);
+      `}
   }
 `
 

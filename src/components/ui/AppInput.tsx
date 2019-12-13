@@ -19,7 +19,7 @@ const AppInputInner = styled.input`
   &::placeholder {
     opacity: 0.7;
   }
-  ${props => FOCUS_STATE(theme(props).colors.darkBlue)};
+  ${props => FOCUS_STATE(theme(props).colors.darkBlue, { withShadow: true })};
 `
 
 const AppInput = React.forwardRef<HTMLInputElement, Props>(({ children, ...rest }, ref) => {

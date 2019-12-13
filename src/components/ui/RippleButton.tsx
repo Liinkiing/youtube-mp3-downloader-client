@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { theme } from '~/styles/themes'
 import { ripple } from '~/styles/houdini'
+import { MAIN_SHADOW } from '~/styles/modules/variables'
 
 interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   readonly disabled?: boolean
@@ -9,7 +10,7 @@ interface Props extends React.HTMLAttributes<HTMLButtonElement> {
 }
 
 const RippleButtonInner = styled.button`
-  transition: all 0.3s;
+  transform: scale(1);
   padding: 20px;
   border-radius: ${props => theme(props).borderRadius};
   outline: none;
@@ -21,6 +22,7 @@ const RippleButtonInner = styled.button`
   font-size: 1.4rem;
   display: flex;
   align-items: center;
+  ${MAIN_SHADOW};
   ${ripple};
   &:hover {
     cursor: pointer;
@@ -28,8 +30,17 @@ const RippleButtonInner = styled.button`
   & > * {
     pointer-events: none;
   }
+  &:hover,
+  :active {
+    transform: scale(1.1);
+  }
   &:disabled {
     opacity: 0.5;
+    cursor: not-allowed;
+    &:hover,
+    :active {
+      transform: scale(1);
+    }
   }
 `
 

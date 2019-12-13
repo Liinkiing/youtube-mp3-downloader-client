@@ -39,6 +39,7 @@ const SearchForm: React.FC<Props> = ({ onVideoSubmitted }) => {
   return (
     <SearchFormInner onSubmit={onSubmit}>
       <SearchInput
+        tabIndex={1}
         placeholder="Youtube URL"
         name="url"
         ref={register({

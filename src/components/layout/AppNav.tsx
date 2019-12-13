@@ -6,6 +6,7 @@ import { theme } from '~/styles/themes'
 import { lighten } from 'polished'
 import AppLogo from '~/components/ui/graphics/AppLogo'
 import { LINKS_FOCUS_STATE } from '~/styles/modules/variables'
+import AppLink from '~/components/AppLink'
 
 const AppNavInner = styled.nav`
   position: fixed;
@@ -22,57 +23,28 @@ const AppNavInner = styled.nav`
     padding: 0;
     display: flex;
     & > li {
-      position: relative;
       margin-right: 20px;
       &:last-of-type {
         margin-right: 0;
       }
-      &:after {
-        transition: all 0.3s;
-        opacity: 0;
-        transform-origin: left center;
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -4px;
-        height: 4px;
-        width: 100%;
-        background: ${props => theme(props).colors.secondary};
-        transform: scaleX(0);
-      }
-      &:hover {
-        &:after {
-          transform: scaleX(1);
-          opacity: 1;
-        }
-      }
     }
   }
-  a {
-    transition: all 0.2s;
-    color: ${props => theme(props).colors.secondary};
-    font-weight: 900;
-    font-size: 2rem;
-    text-decoration: none;
-    margin: 0;
-    &:hover {
-      color: ${props => lighten(0.1, theme(props).colors.secondary)};
-    }
-    ${LINKS_FOCUS_STATE};
+  & .app__logo:hover:after {
+    content: none;
   }
 `
 
 const AppNav: NextPage = () => (
   <AppNavInner>
     <Link href="/">
-      <a>
+      <AppLink tabIndex={1} className="app__logo">
         <AppLogo />
-      </a>
+      </AppLink>
     </Link>
     <ul>
       <li>
         <Link href="/about">
-          <a>About</a>
+          <AppLink tabIndex={1}>About</AppLink>
         </Link>
       </li>
     </ul>
