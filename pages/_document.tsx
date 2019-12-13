@@ -1,7 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 import * as React from 'react'
-import GlobalStyle from '~/styles/global'
 
 interface Props {
   styleTags: Array<React.ReactElement<{}>>
@@ -21,11 +20,14 @@ export default class MyDocument extends Document<Props> {
   render() {
     return (
       <html>
-        <Head>{this.props.styleTags}</Head>
+        <Head>
+          <link href="https://fonts.googleapis.com/css?family=Nunito:400,500,700,900&display=swap" rel="stylesheet" />
+          {this.props.styleTags}
+        </Head>
         <body>
-          <GlobalStyle />
           <Main />
           <NextScript />
+          <script type="text/javascript" src="/worklets/worklet.js"></script>
         </body>
       </html>
     )

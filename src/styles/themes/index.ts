@@ -1,0 +1,6 @@
+import { default as light } from './light'
+import { DefaultTheme } from 'styled-components'
+
+export const theme = <Props extends { theme: DefaultTheme }>(props: Props) => props.theme
+
+export { light }

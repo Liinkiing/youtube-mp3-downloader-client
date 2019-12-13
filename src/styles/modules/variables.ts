@@ -1,6 +1,8 @@
 import { css } from 'styled-components'
-import { lightGray, white } from '~/styles/modules/colors'
+import { lightGray } from '~/styles/modules/colors'
 
 export const MAIN_BACKGROUND = css`
-  background: ${white};
+  background: ${lightGray};
 `
+
+export const MAIN_SHADOW = css``

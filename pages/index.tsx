@@ -12,10 +12,9 @@ const Index: NextPage = () => {
   }, [videoUrl])
   return (
     <Page>
-      <AppHead title="Homepage"/>
-      <p>Hello from home</p>
-      {!videoUrl && <SearchForm onVideoSubmitted={url => setVideoUrl(url)}/>}
-      {videoUrl && <VideoRequest url={videoUrl}/>}
+      <AppHead title="Homepage" />
+      {!videoUrl && <SearchForm onVideoSubmitted={url => setVideoUrl(url)} />}
+      {videoUrl && <VideoRequest url={videoUrl} />}
     </Page>
   )
 }
