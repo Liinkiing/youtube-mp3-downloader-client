@@ -14,7 +14,7 @@ const RippleButtonInner = styled.button`
   border-radius: ${props => theme(props).borderRadius};
   outline: none;
   border: none;
-  background: ${props => theme(props).colors.secondary} paint(ripple);
+  background: ${props => theme(props).colors.primary} paint(ripple);
   color: whitesmoke;
   font-family: inherit;
   font-weight: 400;
@@ -29,7 +29,7 @@ const RippleButtonInner = styled.button`
     pointer-events: none;
   }
   &:disabled {
-    filter: grayscale(100%);
+    opacity: 0.5;
   }
 `
 

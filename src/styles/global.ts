@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
 import bootstrap from '~/styles/bootstrap'
-import { MAIN_BACKGROUND } from '~/styles/modules/variables'
 import { theme } from '~/styles/themes'
 
 export default createGlobalStyle`
@@ -15,13 +14,14 @@ export default createGlobalStyle`
   }
 
   body {
-    ${MAIN_BACKGROUND};
+    background: ${props => theme(props).colors.background};
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     & > #__next {
       flex: 1;
+      overflow: hidden;
       & > .router__wrapper {
         height: 100vh;
       }
@@ -35,7 +35,14 @@ export default createGlobalStyle`
   h5,
   h6 {
     font-weight: 700;
-    color: ${props => theme(props).colors.primary};
+    color: ${props => theme(props).colors.secondary};
     font-family: inherit;
+  }
+  h1 {
+    color: ${props => theme(props).colors.darkBlue};
+    font-weight: 800;
+    font-size: 3rem;
+    max-width: 600px;
+    line-height: 4rem;
   }
 `

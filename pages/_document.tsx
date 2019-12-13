@@ -35,7 +35,7 @@ export default class MyDocument extends Document<Props> {
     return (
       <html>
         <Head>
-          <link href="https://fonts.googleapis.com/css?family=Nunito:400,500,700,900&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Nunito:400,700,800&display=swap" rel="stylesheet" />
           {this.props.styleTags}
         </Head>
         <body>

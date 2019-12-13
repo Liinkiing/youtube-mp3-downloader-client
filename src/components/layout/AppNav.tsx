@@ -4,11 +4,18 @@ import { NextPage } from 'next'
 import styled from 'styled-components'
 import { theme } from '~/styles/themes'
 import { lighten } from 'polished'
+import AppLogo from '~/components/ui/graphics/AppLogo'
+import { LINKS_FOCUS_STATE } from '~/styles/modules/variables'
 
 const AppNavInner = styled.nav`
   position: fixed;
-  right: 20px;
-  top: 20px;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  padding: 60px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 8vw;
   ul {
     list-style: none;
     margin: 0;
@@ -20,17 +27,6 @@ const AppNavInner = styled.nav`
       &:last-of-type {
         margin-right: 0;
       }
-      & a {
-        transition: all 0.2s;
-        color: ${props => theme(props).colors.primary};
-        font-weight: 900;
-        font-size: 2rem;
-        text-decoration: none;
-        margin: 0;
-        &:hover {
-          color: ${props => lighten(0.1, theme(props).colors.primary)};
-        }
-      }
       &:after {
         transition: all 0.3s;
         opacity: 0;
@@ -41,7 +37,7 @@ const AppNavInner = styled.nav`
         bottom: -4px;
         height: 4px;
         width: 100%;
-        background: ${props => theme(props).colors.primary};
+        background: ${props => theme(props).colors.secondary};
         transform: scaleX(0);
       }
       &:hover {
@@ -52,16 +48,28 @@ const AppNavInner = styled.nav`
       }
     }
   }
+  a {
+    transition: all 0.2s;
+    color: ${props => theme(props).colors.secondary};
+    font-weight: 900;
+    font-size: 2rem;
+    text-decoration: none;
+    margin: 0;
+    &:hover {
+      color: ${props => lighten(0.1, theme(props).colors.secondary)};
+    }
+    ${LINKS_FOCUS_STATE};
+  }
 `
 
 const AppNav: NextPage = () => (
   <AppNavInner>
+    <Link href="/">
+      <a>
+        <AppLogo />
+      </a>
+    </Link>
     <ul>
-      <li>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-      </li>
       <li>
         <Link href="/about">
           <a>About</a>

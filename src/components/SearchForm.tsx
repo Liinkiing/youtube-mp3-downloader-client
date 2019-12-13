@@ -15,15 +15,19 @@ interface Props {
 }
 
 const SearchFormInner = styled.form`
-  padding: 50px;
+  margin-top: 56px;
   display: flex;
   align-items: center;
 `
 
+const SearchInput = styled(AppInput)`
+  width: 40vw;
+  min-width: 560px;
+`
+
 const SearchButton = styled(RippleButton)`
-  > svg {
-    margin-left: 2rem;
-  }
+  margin-left: 35px;
+  border-radius: 30px;
 `
 
 const SearchForm: React.FC<Props> = ({ onVideoSubmitted }) => {
@@ -34,7 +38,7 @@ const SearchForm: React.FC<Props> = ({ onVideoSubmitted }) => {
 
   return (
     <SearchFormInner onSubmit={onSubmit}>
-      <AppInput
+      <SearchInput
         placeholder="Youtube URL"
         name="url"
         ref={register({
@@ -45,10 +49,9 @@ const SearchForm: React.FC<Props> = ({ onVideoSubmitted }) => {
           },
         })}
       />
-      {errors.url && errors.url.type === 'required' && <div>Please provide a value</div>}
-      {errors.url && errors.url.type === 'pattern' && <div>{errors.url.message}</div>}
+      {/*{errors.url && errors.url.type === 'required' && <div>Please provide a value</div>}*/}
+      {/*{errors.url && errors.url.type === 'pattern' && <div>{errors.url.message}</div>}*/}
       <SearchButton disabled={!formState.dirty && !formState.isValid} type="submit">
-        Convert
         <FiArrowRight />
       </SearchButton>
     </SearchFormInner>

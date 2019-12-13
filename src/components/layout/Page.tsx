@@ -15,8 +15,9 @@ const PageInner = styled(motion.div)`
   height: 100%;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  transform-origin: center center;
+  transform-origin: left center;
+  max-width: 70vw;
+  margin: 0 auto;
 `
 
 const Page: NextPage<Props> = ({ children, as = 'div', noDefaultTransition = false, ...rest }) =>
