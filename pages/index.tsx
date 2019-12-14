@@ -1,11 +1,11 @@
 import { NextPage } from 'next'
-import { useEffect, useState } from 'react'
 import SearchForm from '~/components/SearchForm'
 import AppHead from '~/components/AppHead'
 import Page from '~/components/layout/Page'
 import Blob from '~/components/ui/graphics/Blob'
 import styled from 'styled-components'
 import CharacterRolling from '~/components/ui/graphics/CharacterRolling'
+import { useRouter } from 'next/router'
 
 const FirstBlob = styled(Blob)`
   z-index: -1;
@@ -33,10 +33,7 @@ const Title = styled.h1`
 `
 
 const Index: NextPage = () => {
-  const [videoUrl, setVideoUrl] = useState<string | null>(null)
-  useEffect(() => {
-    console.log('videoUrl', videoUrl)
-  }, [videoUrl])
+  const router = useRouter()
   return (
     <Page>
       <AppHead title="Homepage" />
@@ -44,9 +41,16 @@ const Index: NextPage = () => {
       <SecondBlob pattern="second" />
       <BackCharacterRolling />
       <Title>Convert your favorite YouTube videos to mp3</Title>
-      <SearchForm onVideoSubmitted={() => {}} />
-      {/*{!videoUrl && <SearchForm onVideoSubmitted={url => setVideoUrl(url)} />}*/}
-      {/*{videoUrl && <VideoRequest url={videoUrl} />}*/}
+      <SearchForm
+        onVideoSubmitted={({ url }) => {
+          router.push({
+            pathname: '/process',
+            query: {
+              v: url,
+            },
+          })
+        }}
+      />
     </Page>
   )
 }

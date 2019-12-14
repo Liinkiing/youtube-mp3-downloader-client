@@ -1,50 +1,43 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 import { useMercure } from '@liinkiing/use-mercure'
 import { AudioRequest } from '~/@types/api'
 import { useRouter } from 'next/router'
+import Terminal from '~/components/terminal'
 
 interface Props {
   readonly request: AudioRequest
 }
 
-const OutputLogInner = styled.code``
-
 const OutputLog: React.FC<Props> = ({ request }) => {
   const router = useRouter()
-  const [lines, setLines] = useState<string[]>([])
+  const [rows, setRows] = useState<string[]>([])
   useMercure<string>(
     `/audio/request/${request.id}/output`,
     data => {
-      setLines([...lines, data])
+      setRows([...rows, data])
     },
-    [lines],
+    [rows],
   )
   useMercure<{ request: AudioRequest }>(
     `/audio/request/${request.id}/finish`,
     ({ request }) => {
       router.push('/audio/request/[id]', `/audio/request/${request.id}`)
     },
-    [lines],
+    [rows],
   )
   useMercure<{ reason: string }>(
     `/audio/request/${request.id}/failed`,
     ({ reason }) => {
       router.replace(`/`)
     },
-    [lines],
+    [rows],
   )
   return (
-    <div>
-      <h3>Output</h3>
-      <OutputLogInner>
-        <ul>
-          {lines.map((line, i) => (
-            <li key={i}>{line}</li>
-          ))}
-        </ul>
-      </OutputLogInner>
-    </div>
+    <Terminal>
+      {rows.map((log, i) => (
+        <Terminal.Row key={i}>{log}</Terminal.Row>
+      ))}
+    </Terminal>
   )
 }
 

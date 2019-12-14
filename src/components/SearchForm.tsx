@@ -11,7 +11,7 @@ interface FormValues {
 }
 
 interface Props {
-  readonly onVideoSubmitted: (url: string) => void
+  readonly onVideoSubmitted: (values: FormValues) => void
 }
 
 const SearchFormInner = styled.form`
@@ -33,7 +33,7 @@ const SearchButton = styled(RippleButton)`
 const SearchForm: React.FC<Props> = ({ onVideoSubmitted }) => {
   const { register, handleSubmit, errors, formState } = useForm<FormValues>()
   const onSubmit = handleSubmit(data => {
-    onVideoSubmitted(data.url)
+    onVideoSubmitted(data)
   })
 
   return (
