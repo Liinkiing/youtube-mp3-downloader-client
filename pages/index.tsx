@@ -28,6 +28,10 @@ const BackCharacterRolling = styled(CharacterRolling)`
   bottom: 10%;
 `
 
+const Title = styled.h1`
+  max-width: 600px;
+`
+
 const Index: NextPage = () => {
   const [videoUrl, setVideoUrl] = useState<string | null>(null)
   useEffect(() => {
@@ -39,7 +43,7 @@ const Index: NextPage = () => {
       <FirstBlob pattern="first" />
       <SecondBlob pattern="second" />
       <BackCharacterRolling />
-      <h1>Convert your favorite youtube videos to mp3</h1>
+      <Title>Convert your favorite YouTube videos to mp3</Title>
       <SearchForm onVideoSubmitted={() => {}} />
       {/*{!videoUrl && <SearchForm onVideoSubmitted={url => setVideoUrl(url)} />}*/}
       {/*{videoUrl && <VideoRequest url={videoUrl} />}*/}

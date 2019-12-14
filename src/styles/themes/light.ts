@@ -8,6 +8,7 @@ export const text = '#57585a'
 export const background = '#fffbfa'
 export const darkBlue = '#18339A'
 export const error = '#FF6CAB'
+export const terminalBackground = '#262525'
 
 const theme: DefaultTheme = {
   ...base,
@@ -18,6 +19,7 @@ const theme: DefaultTheme = {
     tint,
     darkBlue,
     text,
+    terminalBackground,
     notifications: {
       error,
     },

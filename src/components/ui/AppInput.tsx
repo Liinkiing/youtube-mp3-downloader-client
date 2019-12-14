@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { theme } from '~/styles/themes'
-import { FOCUS_STATE, MAIN_SHADOW } from '~/styles/modules/variables'
+import { FOCUS_STATE, MAIN_BOX_SHADOW } from '~/styles/modules/variables'
 
 interface Props extends React.ComponentPropsWithoutRef<'button'> {}
 
@@ -15,7 +15,7 @@ const AppInputInner = styled.input`
   font-size: 1rem;
   font-weight: 600;
   margin: -10px;
-  ${MAIN_SHADOW};
+  ${MAIN_BOX_SHADOW()};
   &::placeholder {
     opacity: 0.7;
   }

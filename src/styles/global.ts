@@ -42,7 +42,9 @@ export default createGlobalStyle`
     color: ${props => theme(props).colors.darkBlue};
     font-weight: 800;
     font-size: 3rem;
-    max-width: 600px;
     line-height: 4rem;
+  }
+  h2 {
+    color: ${props => theme(props).colors.darkBlue};
   }
 `

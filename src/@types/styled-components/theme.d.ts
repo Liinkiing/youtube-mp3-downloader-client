@@ -11,6 +11,7 @@ declare module 'styled-components' {
       text: string
       tint: string
       darkBlue: string
+      terminalBackground: string
       notifications: {
         error: string
       }

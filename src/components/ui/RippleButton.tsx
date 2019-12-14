@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { theme } from '~/styles/themes'
 import { ripple } from '~/styles/houdini'
-import { MAIN_SHADOW } from '~/styles/modules/variables'
+import { MAIN_BOX_SHADOW } from '~/styles/modules/variables'
 
 interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   readonly disabled?: boolean
@@ -22,7 +22,7 @@ const RippleButtonInner = styled.button`
   font-size: 1.4rem;
   display: flex;
   align-items: center;
-  ${MAIN_SHADOW};
+  ${MAIN_BOX_SHADOW()};
   ${ripple};
   &:hover {
     cursor: pointer;

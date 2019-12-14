@@ -1,8 +1,20 @@
 import { css } from 'styled-components'
 import { theme } from '../themes'
+import { rgba } from 'polished'
 
-export const MAIN_SHADOW = css`
-  box-shadow: 2px 2px 15px rgba(224, 224, 224, 0.4);
+interface ShadowOptions {
+  color: string
+  shadow: string
+}
+
+export const MAIN_BOX_SHADOW = (
+  { color, shadow }: Partial<ShadowOptions> = { color: 'rgba(224, 224, 224, 0.4)', shadow: '2px 2px 15px' },
+) => css`
+  box-shadow: ${shadow} ${color};
+`
+
+export const MAIN_BORDER_RADIUS = css`
+  border-radius: ${props => theme(props).borderRadius};
 `
 
 export const FOCUS_STATE = (color: string, options?: { withShadow: boolean }) => css`
@@ -11,7 +23,7 @@ export const FOCUS_STATE = (color: string, options?: { withShadow: boolean }) =>
     border: 5px solid ${color};
     ${options?.withShadow &&
       css`
-        box-shadow: 2px 7px 15px rgba(200,200,200,0.8);
+        box-shadow: 2px 7px 15px rgba(200, 200, 200, 0.8);
       `}
   }
 `
@@ -19,7 +31,7 @@ export const FOCUS_STATE = (color: string, options?: { withShadow: boolean }) =>
 export const LINKS_FOCUS_STATE = css`
   ${props => FOCUS_STATE(theme(props).colors.secondary)};
   &:focus {
-    border-radius: ${props => theme(props).borderRadius};
+    ${MAIN_BORDER_RADIUS};
     padding: 10px;
   }
 `
