@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import { AudioRequest } from '~/@types/api'
 import ApiClient from '~/services/api-client'
 import OutputLog from '~/components/OutputLog'
+import { AnimatePresence, motion } from 'framer-motion'
 
 interface Props {
   readonly youtubeUrl?: string
@@ -21,7 +22,7 @@ const ProcessStatusInformations = styled.div`
   }
 `
 
-const TerminalContainer = styled.div`
+const TerminalContainer = styled(motion.div)`
   margin-top: 40px;
 `
 
@@ -61,7 +62,17 @@ const Process: NextPage<Props> = ({ youtubeUrl }) => {
         </ProcessStatusInformations>
         <ProcessProgressBar />
       </ProcessStatus>
-      <TerminalContainer>{request && <OutputLog request={request} />}</TerminalContainer>
+      <AnimatePresence>
+        {request && (
+          <TerminalContainer
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+          >
+            <OutputLog request={request} />
+          </TerminalContainer>
+        )}
+      </AnimatePresence>
     </Page>
   )
 }
