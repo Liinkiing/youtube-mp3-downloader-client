@@ -11,6 +11,8 @@ import OutputLog from '~/components/OutputLog'
 import { AnimatePresence, motion } from 'framer-motion'
 import { breakpoint } from 'styled-components-breakpoint'
 import { notify } from '~/components/notifications/NotificationsContainer'
+import { Emitter } from '~/utils'
+import { UIEvents } from '~/enums'
 
 interface Props {
   readonly youtubeUrl?: string
@@ -63,34 +65,38 @@ const Process: NextPage<Props> = ({ youtubeUrl }) => {
   const router = useRouter()
   const [request, setRequest] = useState<AudioRequest | null>(null)
   useEffect(() => {
-    let didCancel = false
+    Emitter.emit(UIEvents.NavigationHide)
+
+    return () => {
+      Emitter.emit(UIEvents.NavigationShow)
+    }
+  }, [])
+  useEffect(() => {
+    if (!youtubeUrl) {
+      notify({
+        type: 'info',
+        content: 'You have to specify a YouTube url',
+      })
+      router.replace('/')
+    }
     const doFetch = async () => {
       try {
         const match = await ApiClient.findAudioRequest(youtubeUrl)
-        if (!didCancel) {
-          if (match) {
-            router.replace(`/audio/request/[id]`, `/audio/request/${match.id}`)
-          } else {
-            setRequest(await ApiClient.postAudioRequest({ youtubeUrl }))
-          }
+        if (match) {
+          router.replace(`/audio/request/[id]`, `/audio/request/${match.id}`)
+        } else {
+          setRequest(await ApiClient.postAudioRequest({ youtubeUrl }))
         }
       } catch (e) {
-        if (!didCancel) {
-          notify({
-            type: 'error',
-            content: 'An error occurred, please retry',
-          })
-          didCancel = true
-        }
+        notify({
+          type: 'error',
+          content: 'An error occurred, please retry',
+        })
         router.replace('/')
       }
     }
     doFetch()
-
-    return () => {
-      didCancel = true
-    }
-  }, [router, youtubeUrl])
+  }, [youtubeUrl])
   return (
     <Page>
       {!request && <AppHead title="Loading..." url="/process" />}

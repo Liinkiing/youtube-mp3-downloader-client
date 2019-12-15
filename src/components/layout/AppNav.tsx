@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { NextPage } from 'next'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import AppLogo from '~/components/ui/graphics/AppLogo'
 import AppLink from '~/components/AppLink'
 import { breakpoint } from 'styled-components-breakpoint'
+import { useEvent } from '~/hooks/useEvent'
+import { UIEvents } from '~/enums'
 
-const AppNavInner = styled.nav`
+const AppNavInner = styled.nav<{ visible: boolean }>`
+  transition: opacity 0.3s ease-in;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -34,6 +37,20 @@ const AppNavInner = styled.nav`
   & .app__logo:hover:after {
     content: none;
   }
+  ${props =>
+    !props.visible &&
+    css`
+      opacity: 0;
+      visibility: hidden;
+    `};
+  ${breakpoint('tablet')`
+  ${props =>
+    !(props as any).visible &&
+    css`
+      opacity: 1;
+      visibility: visible;
+    `};
+  `};
 `
 
 const NavLink = styled(AppLink)`
@@ -41,21 +58,30 @@ const NavLink = styled(AppLink)`
   font-size: 2rem;
 `
 
-const AppNav: NextPage = () => (
-  <AppNavInner>
-    <Link href="/">
-      <NavLink tabIndex={1} className="app__logo">
-        <AppLogo />
-      </NavLink>
-    </Link>
-    <ul>
-      <li>
-        <Link href="/about">
-          <NavLink tabIndex={1}>About</NavLink>
-        </Link>
-      </li>
-    </ul>
-  </AppNavInner>
-)
+const AppNav: NextPage = () => {
+  const [visible, setVisible] = useState(true)
+  useEvent(UIEvents.NavigationShow, () => {
+    setVisible(true)
+  })
+  useEvent(UIEvents.NavigationHide, () => {
+    setVisible(false)
+  })
+  return (
+    <AppNavInner visible={visible}>
+      <Link href="/">
+        <NavLink tabIndex={1} className="app__logo">
+          <AppLogo />
+        </NavLink>
+      </Link>
+      <ul>
+        <li>
+          <Link href="/about">
+            <NavLink tabIndex={1}>About</NavLink>
+          </Link>
+        </li>
+      </ul>
+    </AppNavInner>
+  )
+}
 
 export default AppNav

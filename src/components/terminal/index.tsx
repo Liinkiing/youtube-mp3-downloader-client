@@ -45,11 +45,12 @@ const TerminalContent = styled.div`
   font-family: 'Cascadia Code', 'Fira Code', 'Hack', monospace !important;
   color: whitesmoke;
   height: 100%;
+  padding: 40px;
+  overflow-y: hidden;
   ${breakpoint('tablet')`
+    padding: 0 20px 20px 30px;
     height: 87%;
   `};
-  padding: 0 20px 20px 20px;
-  overflow-y: hidden;
 `
 
 const Terminal: React.FC<StyledClassName> & { Row: typeof Row } = ({ className, children }) => {
