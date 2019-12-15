@@ -59,7 +59,14 @@ const AudioRequestShow: NextPage<Props> = ({ hasError, request }) => {
   }
   return (
     <AudioPage>
-      <AppHead title={request.audio.title} url={`/audio/request/${request.id}`} />
+      <AppHead
+        title={request.audio.title}
+        description={`Download the song "${request.audio.title}"${
+          request.audio.artist ? ' by ' + request.audio.artist : ''
+        }"`}
+        socialImage={request.audio.thumbnailUrl ?? undefined}
+        url={`/audio/request/${request.id}`}
+      />
       <h1>Your song is ready!</h1>
       <InformationsContainer>
         <SongCard>
