@@ -6,6 +6,8 @@ import styled from 'styled-components'
 import CharacterRolling from '~/components/ui/graphics/CharacterRolling'
 import { useRouter } from 'next/router'
 import { breakpoint } from 'styled-components-breakpoint'
+import { useEffect } from 'react'
+import ApiClient from '~/services/api-client'
 
 const BackCharacterRolling = styled(CharacterRolling)`
   z-index: -1;
@@ -28,6 +30,11 @@ const Title = styled.h1`
 
 const Index: NextPage = () => {
   const router = useRouter()
+  useEffect(() => {
+    // Dumb hack because I'm  using free Heroku dynos for the backend, so I'm using this route to wake
+    // up as early as possible the dynos, so that they are ready when using the webapp
+    ApiClient.heartbeat()
+  }, [])
   return (
     <Page>
       <AppHead title="YouTube MP3 Downloader" url="/" />

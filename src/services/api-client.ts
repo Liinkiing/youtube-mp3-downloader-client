@@ -9,6 +9,8 @@ const DEFAULT_HEADERS = {
 class AppApiClient {
   constructor(private baseUri: string = process.env.NEXT_STATIC_API_URL) {}
 
+  public heartbeat = async () => (await this.get('/heartbeat')).json
+
   public findAudioRequest = async (url: string): Promise<GetAudioRequest | null> =>
     (await this.get(`/audio/requests?youtube_url=${encodeURIComponent(url)}`)).json()
   public audioRequests = async (): Promise<GetAudioRequests> => (await this.get('/audio/requests')).json()
