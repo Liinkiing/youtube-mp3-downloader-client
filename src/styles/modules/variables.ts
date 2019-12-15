@@ -7,10 +7,8 @@ interface ShadowOptions {
   shadow: string
 }
 
-export const MAIN_BOX_SHADOW = (
-  { color, shadow }: Partial<ShadowOptions> = { color: 'rgba(224, 224, 224, 0.4)', shadow: '2px 2px 15px' },
-) => css`
-  box-shadow: ${shadow} ${color};
+export const MAIN_BOX_SHADOW = css`
+  box-shadow: 2px 2px 15px rgba(224, 224, 224, 0.4);
 `
 
 export const MAIN_BORDER_RADIUS = css`

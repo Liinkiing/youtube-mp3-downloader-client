@@ -2,19 +2,19 @@ import React from 'react'
 import Link from 'next/link'
 import { NextPage } from 'next'
 import styled from 'styled-components'
-import { theme } from '~/styles/themes'
-import { lighten } from 'polished'
 import AppLogo from '~/components/ui/graphics/AppLogo'
-import { LINKS_FOCUS_STATE } from '~/styles/modules/variables'
 import AppLink from '~/components/AppLink'
+
+export const NAVBAR_HEIGHT = 200
 
 const AppNavInner = styled.nav`
   position: fixed;
   z-index: 1;
   left: 0;
   right: 0;
-  padding: 60px;
   display: flex;
+  height: ${NAVBAR_HEIGHT}px;
+  align-items: center;
   justify-content: space-between;
   margin: 0 8vw;
   ul {

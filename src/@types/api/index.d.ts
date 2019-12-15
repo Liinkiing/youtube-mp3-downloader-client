@@ -22,6 +22,7 @@ export interface Audio {
   filename: string
   mimeType: string
   title: string
+  thumbnailUrl: string | null
   artist: string | null
   displayName: string | null
   createdAt: string

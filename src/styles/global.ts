@@ -43,8 +43,15 @@ export default createGlobalStyle`
     font-weight: 800;
     font-size: 3rem;
     line-height: 4rem;
+    margin-bottom: 2rem;
   }
   h2 {
     color: ${props => theme(props).colors.darkBlue};
+  }
+  h1 + h2 {
+    margin-top: -1.3rem;
+  }
+  h2 + h3 {
+    margin-top: 0.5rem;
   }
 `

@@ -15,7 +15,8 @@ const TerminalInner = styled.div<{ hasScrolled: boolean }>`
   width: 100%;
   height: 441px;
   ${MAIN_BORDER_RADIUS};
-  ${MAIN_BOX_SHADOW({ color: 'rgba(126,126,126,0.6)', shadow: '0 7px 20px' })};
+  ${MAIN_BOX_SHADOW};
+  box-shadow: 0 7px 20px rgba(126,126,126,0.6);
   background: ${props => theme(props).colors.terminalBackground};
   display: flex;
   flex-direction: column;

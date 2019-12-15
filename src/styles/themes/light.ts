@@ -18,6 +18,7 @@ const theme: DefaultTheme = {
     background,
     tint,
     darkBlue,
+    error,
     text,
     terminalBackground,
     notifications: {

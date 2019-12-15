@@ -30,6 +30,7 @@ const BackCharacterRolling = styled(CharacterRolling)`
 
 const Title = styled.h1`
   max-width: 600px;
+  margin-bottom: 0;
 `
 
 const Index: NextPage = () => {

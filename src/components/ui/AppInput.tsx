@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { theme } from '~/styles/themes'
 import { FOCUS_STATE, MAIN_BOX_SHADOW } from '~/styles/modules/variables'
 
-interface Props extends React.ComponentPropsWithoutRef<'button'> {}
+interface Props extends React.ComponentPropsWithoutRef<'input'> {}
 
 const AppInputInner = styled.input`
   transition: all 0.15s;
@@ -15,7 +15,7 @@ const AppInputInner = styled.input`
   font-size: 1rem;
   font-weight: 600;
   margin: -10px;
-  ${MAIN_BOX_SHADOW()};
+  ${MAIN_BOX_SHADOW};
   &::placeholder {
     opacity: 0.7;
   }

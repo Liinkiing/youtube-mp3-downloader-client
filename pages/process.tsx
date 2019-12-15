@@ -17,9 +17,6 @@ interface Props {
 const ProcessStatusInformations = styled.div`
   display: flex;
   flex-direction: column;
-  h2 {
-    margin-top: 0.5rem;
-  }
 `
 
 const TerminalContainer = styled(motion.div)`

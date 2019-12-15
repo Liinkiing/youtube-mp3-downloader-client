@@ -12,7 +12,7 @@ const ProgressBarOuter = styled.div`
   height: 60px;
   border-radius: 30px;
   overflow: hidden;
-  ${MAIN_BOX_SHADOW()};
+  ${MAIN_BOX_SHADOW};
 `
 const ProgressBarInner = styled.div`
   animation: ${infiniteProgressbar} 10s infinite linear;
