@@ -1,12 +1,14 @@
 {
   "env": {
     "NEXT_STATIC_HUB_URL": "@hub-url",
-    "NEXT_STATIC_API_URL":  "@api-url"
+    "NEXT_STATIC_API_URL":  "@api-url",
+    "BASE_URL":  "https://ytomp3.now.sh"
   },
   "build": {
     "env": {
       "NEXT_STATIC_HUB_URL": "@hub-url",
-      "NEXT_STATIC_API_URL":  "@api-url"
+      "NEXT_STATIC_API_URL":  "@api-url",
+      "BASE_URL":  "https://ytomp3.now.sh"
     }
   },
   "github": {

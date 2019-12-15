@@ -1,10 +1,10 @@
 import React from 'react'
 import NextHead from 'next/head'
 
-const BASE_URL = process.env.NOW_ENV || process.env.BASE_URL || ''
+const BASE_URL = process.env.BASE_URL || ''
 
 const defaultDescription = 'A beautiful online converter to get YouTube videos in MP3'
-const defaultOGImage = BASE_URL + '/images/og.png'
+const defaultOGImage = BASE_URL + '/images/og.jpg'
 
 interface Props {
   title?: string
