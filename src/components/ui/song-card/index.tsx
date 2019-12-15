@@ -12,7 +12,7 @@ const SongCardInner = styled.div`
   background: white;
   ${MAIN_BORDER_RADIUS};
   display: flex;
-  max-width: 680px;
+  max-width: 100%;
 `
 
 const SongCard: SongCard = ({ children }) => (

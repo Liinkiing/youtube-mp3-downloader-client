@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import bootstrap from '~/styles/bootstrap'
 import { theme } from '~/styles/themes'
+import breakpoint from 'styled-components-breakpoint'
 
 export default createGlobalStyle`
   ${bootstrap};
@@ -10,7 +11,10 @@ export default createGlobalStyle`
   }
 
   html {
-    font-size: 100%;
+    font-size: 80%;
+    @media screen and (min-width: 771px) {
+      font-size: 100%;
+    }
   }
 
   body {
@@ -49,9 +53,19 @@ export default createGlobalStyle`
     color: ${props => theme(props).colors.darkBlue};
   }
   h1 + h2 {
-    margin-top: -1.3rem;
+    margin-top: -1.6rem;
   }
   h2 + h3 {
     margin-top: 0.5rem;
+  }
+  a {
+  text-decoration: none;
+  }
+  p {
+    color: ${props => theme(props).colors.secondary};
+    margin: 1.25rem 0;
+  }
+  p + p {
+    margin-top: -0.5rem;
   }
 `

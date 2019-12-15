@@ -38,7 +38,8 @@
     "react-dom": "^16.8.6",
     "react-hook-form": "^3.28.14",
     "react-icons": "^3.8.0",
-    "styled-components": "^5.0.0-rc.2"
+    "styled-components": "^5.0.0-rc.2",
+    "styled-components-breakpoint": "^3.0.0-preview.20"
   },
   "devDependencies": {
     "@types/node": "^12.6.1",

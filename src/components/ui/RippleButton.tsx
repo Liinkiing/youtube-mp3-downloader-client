@@ -23,7 +23,10 @@ const RippleButtonInner = styled(motion.button)<{ variant: Variant }>`
   border-radius: 50px;
   outline: none;
   border: none;
-  background: ${props => theme(props).colors[props.variant]} paint(ripple);
+  background: ${props => theme(props).colors[props.variant]};
+  @supports (background: paint(ripple)) {
+    background: ${props => theme(props).colors[props.variant]} paint(ripple);
+  }
   color: whitesmoke;
   font-family: inherit;
   font-weight: 600;

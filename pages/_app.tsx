@@ -5,8 +5,31 @@ import AppNav from '~/components/layout/AppNav'
 import { MercureProvider } from '@liinkiing/use-mercure'
 import { AnimatePresence } from 'framer-motion'
 import GlobalStyle from '~/styles/global'
-import { ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import { light } from '~/styles/themes'
+import Blob from '~/components/ui/graphics/Blob'
+import { rotation } from '~/styles/modules/keyframes'
+import { breakpoint } from 'styled-components-breakpoint'
+
+const FirstBlob = styled(Blob)`
+  animation: ${rotation} 120s infinite alternate-reverse linear;
+  z-index: -1;
+  position: fixed;
+  left: 50%;
+  bottom: 10%;
+  transform: translate(0px, 300px);
+  ${breakpoint('tablet')`
+    transform: unset;
+  `};
+`
+const SecondBlob = styled(Blob)`
+  animation: ${rotation} 120s infinite alternate-reverse linear;
+  z-index: -1;
+  position: fixed;
+  left: -170px;
+  top: -200px;
+  opacity: 0.7;
+`
 
 class MyApp extends App {
   render() {
@@ -16,6 +39,8 @@ class MyApp extends App {
       <MercureProvider options={{ hubUrl: process.env.NEXT_STATIC_HUB_URL }}>
         <ThemeProvider theme={light}>
           <GlobalStyle />
+          <FirstBlob pattern="first" />
+          <SecondBlob pattern="second" />
           <NProgress color={light.colors.primary} spinner={false} />
           <AppNav />
           <AnimatePresence exitBeforeEnter initial={false}>

@@ -4,8 +4,7 @@ import { NextPage } from 'next'
 import styled from 'styled-components'
 import AppLogo from '~/components/ui/graphics/AppLogo'
 import AppLink from '~/components/AppLink'
-
-export const NAVBAR_HEIGHT = 200
+import { breakpoint } from 'styled-components-breakpoint'
 
 const AppNavInner = styled.nav`
   position: fixed;
@@ -13,10 +12,13 @@ const AppNavInner = styled.nav`
   left: 0;
   right: 0;
   display: flex;
-  height: ${NAVBAR_HEIGHT}px;
+  height: 100px;
   align-items: center;
   justify-content: space-between;
   margin: 0 8vw;
+  ${breakpoint('tablet')`
+    height: 200px;
+  `};
   ul {
     list-style: none;
     margin: 0;
@@ -34,17 +36,22 @@ const AppNavInner = styled.nav`
   }
 `
 
+const NavLink = styled(AppLink)`
+  font-weight: 900;
+  font-size: 2rem;
+`
+
 const AppNav: NextPage = () => (
   <AppNavInner>
     <Link href="/">
-      <AppLink tabIndex={1} className="app__logo">
+      <NavLink tabIndex={1} className="app__logo">
         <AppLogo />
-      </AppLink>
+      </NavLink>
     </Link>
     <ul>
       <li>
         <Link href="/about">
-          <AppLink tabIndex={1}>About</AppLink>
+          <NavLink tabIndex={1}>About</NavLink>
         </Link>
       </li>
     </ul>

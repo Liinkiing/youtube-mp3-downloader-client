@@ -12,8 +12,6 @@ const AppLinkInner = styled.a`
   position: relative;
   transition: all 0.2s;
   color: ${props => theme(props).colors.secondary};
-  font-weight: 900;
-  font-size: 2rem;
   text-decoration: none;
   margin: 0;
   &:hover {
@@ -27,8 +25,8 @@ const AppLinkInner = styled.a`
     content: '';
     position: absolute;
     left: 0;
-    bottom: 0;
-    height: 4px;
+    bottom: -10%;
+    height: 10%;
     width: 100%;
     background: ${props => lighten(0.1, theme(props).colors.secondary)};
     transform: scaleX(0);

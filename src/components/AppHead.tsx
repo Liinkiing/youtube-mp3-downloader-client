@@ -16,7 +16,7 @@ const AppHead: React.FC<Props> = ({ title, description, url, socialImage }) => (
   <NextHead>
     <meta key="charset" charSet="UTF-8" />
     <title>{title}</title>
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#3E64E1" />
     <link rel="manifest" href="/manifest.json" />
     <meta key="description" name="description" content={description} />
     <meta key="viewport" name="viewport" content="width=device-width, initial-scale=1" />

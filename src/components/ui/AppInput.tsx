@@ -14,7 +14,7 @@ const AppInputInner = styled.input`
   font: inherit;
   font-size: 1rem;
   font-weight: 600;
-  margin: -10px;
+  margin: -15px;
   ${MAIN_BOX_SHADOW};
   &::placeholder {
     opacity: 0.7;

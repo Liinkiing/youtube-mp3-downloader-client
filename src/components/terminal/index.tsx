@@ -5,16 +5,23 @@ import { theme } from '~/styles/themes'
 import { StyledClassName } from '~/@types'
 import Row from '~/components/terminal/row'
 import { useHasScrolled } from '~/hooks/useHasScrolled'
+import { breakpoint } from 'styled-components-breakpoint'
 
 const TerminalWindowControls = styled.div`
-  transition: box-shadow 0.3s;
   padding: 15px 20px;
+  display: none;
+  transition: box-shadow 0.3s;
+  ${breakpoint('tablet')`
+    display: block;
+  `};
 `
 
 const TerminalInner = styled.div<{ hasScrolled: boolean }>`
   width: 100%;
-  height: 441px;
-  ${MAIN_BORDER_RADIUS};
+  height: 100%;
+  ${breakpoint('tablet')`
+    ${MAIN_BORDER_RADIUS};
+  `};
   ${MAIN_BOX_SHADOW};
   box-shadow: 0 7px 20px rgba(126,126,126,0.6);
   background: ${props => theme(props).colors.terminalBackground};
@@ -37,7 +44,10 @@ const TerminalContent = styled.div`
   text-rendering: optimizeLegibility;
   font-family: 'Cascadia Code', 'Fira Code', 'Hack', monospace !important;
   color: whitesmoke;
-  height: 87%;
+  height: 100%;
+  ${breakpoint('tablet')`
+    height: 87%;
+  `};
   padding: 0 20px 20px 20px;
   overflow-y: hidden;
 `

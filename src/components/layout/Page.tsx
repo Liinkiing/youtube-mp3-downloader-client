@@ -3,6 +3,7 @@ import { NextPage } from 'next'
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import { DefaultRouterPageVariants } from '~/common/framer'
+import { breakpoint } from 'styled-components-breakpoint'
 
 interface Props {
   readonly as?: string
@@ -16,8 +17,11 @@ const PageInner = styled(motion.div)`
   flex-direction: column;
   justify-content: center;
   transform-origin: left center;
-  max-width: 70vw;
+  max-width: 90vw;
   margin: 0 auto;
+  ${breakpoint('tablet')`
+    max-width: 70vw;
+  `}
 `
 
 const Page: NextPage<Props> = ({ children, as = 'div', noDefaultTransition = false, ...rest }) =>
