@@ -23,6 +23,8 @@ const theme: DefaultTheme = {
     terminalBackground,
     notifications: {
       error,
+      info: secondary,
+      success: primary,
     },
   },
 }

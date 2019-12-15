@@ -10,6 +10,7 @@ import ApiClient from '~/services/api-client'
 import OutputLog from '~/components/OutputLog'
 import { AnimatePresence, motion } from 'framer-motion'
 import { breakpoint } from 'styled-components-breakpoint'
+import { notify } from '~/components/notifications/NotificationsContainer'
 
 interface Props {
   readonly youtubeUrl?: string
@@ -62,23 +63,38 @@ const Process: NextPage<Props> = ({ youtubeUrl }) => {
   const router = useRouter()
   const [request, setRequest] = useState<AudioRequest | null>(null)
   useEffect(() => {
+    let didCancel = false
     const doFetch = async () => {
       try {
         const match = await ApiClient.findAudioRequest(youtubeUrl)
-        if (match) {
-          router.replace(`/audio/request/[id]`, `/audio/request/${match.id}`)
-        } else {
-          setRequest(await ApiClient.postAudioRequest({ youtubeUrl }))
+        if (!didCancel) {
+          if (match) {
+            router.replace(`/audio/request/[id]`, `/audio/request/${match.id}`)
+          } else {
+            setRequest(await ApiClient.postAudioRequest({ youtubeUrl }))
+          }
         }
       } catch (e) {
+        if (!didCancel) {
+          notify({
+            type: 'error',
+            content: 'An error occurred, please retry',
+          })
+          didCancel = true
+        }
         router.replace('/')
       }
     }
     doFetch()
+
+    return () => {
+      didCancel = true
+    }
   }, [router, youtubeUrl])
   return (
     <Page>
-      <AppHead title="Processing" />
+      {!request && <AppHead title="Loading..." />}
+      {request && <AppHead title={`Processing ${request.youtubeUrl}...`} />}
       <ProcessStatus>
         <ProcessStatusInformations>
           <h1>Your song is loading</h1>

@@ -15,6 +15,8 @@ declare module 'styled-components' {
       error: string
       notifications: {
         error: string
+        info: string
+        success: string
       }
     }
   }

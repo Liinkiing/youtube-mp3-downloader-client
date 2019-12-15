@@ -35,7 +35,7 @@ const SearchFormInner = styled.form`
     flex-direction: row;
   `};
   & ${SearchButton} {
-    margin-top: 40px;
+    margin-top: 4rem;
     width: 100%;
     margin-left: 0;
     ${breakpoint('tablet')`

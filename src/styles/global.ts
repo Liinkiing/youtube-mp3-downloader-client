@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import bootstrap from '~/styles/bootstrap'
 import { theme } from '~/styles/themes'
-import breakpoint from 'styled-components-breakpoint'
 
 export default createGlobalStyle`
   ${bootstrap};
@@ -29,6 +28,22 @@ export default createGlobalStyle`
       & > .router__wrapper {
         height: 100vh;
       }
+    }
+  }
+
+  #notifications {
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    z-index: 10000;
+    align-items: center;
+    display: none;
+    &.visible {
+      display: flex;
     }
   }
 

@@ -10,6 +10,7 @@ import { light } from '~/styles/themes'
 import Blob from '~/components/ui/graphics/Blob'
 import { rotation } from '~/styles/modules/keyframes'
 import { breakpoint } from 'styled-components-breakpoint'
+import NotificationsContainer from '~/components/notifications/NotificationsContainer'
 
 const FirstBlob = styled(Blob)`
   animation: ${rotation} 120s infinite alternate-reverse linear;
@@ -39,6 +40,7 @@ class MyApp extends App {
       <MercureProvider options={{ hubUrl: process.env.NEXT_STATIC_HUB_URL }}>
         <ThemeProvider theme={light}>
           <GlobalStyle />
+          <NotificationsContainer />
           <FirstBlob pattern="first" />
           <SecondBlob pattern="second" />
           <NProgress color={light.colors.primary} spinner={false} />

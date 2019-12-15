@@ -40,6 +40,7 @@ export default class MyDocument extends Document<Props> {
         </Head>
         <body>
           <Main />
+          <div id="notifications"></div>
           <NextScript />
           <script type="text/javascript" src="/worklets/worklet.js"></script>
         </body>

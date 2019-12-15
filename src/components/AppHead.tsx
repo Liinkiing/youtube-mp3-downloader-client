@@ -22,7 +22,7 @@ const AppHead: React.FC<Props> = ({ title, description, url, socialImage }) => (
     <meta key="viewport" name="viewport" content="width=device-width, initial-scale=1" />
     <link key="icon" rel="icon" sizes="192x192" href="/touch-icon.png" />
     <link key="apple-touch-icon" rel="apple-touch-icon" href="/touch-icon.png" />
-    <link key="favicon" rel="icon" href="/favicon.ico" />
+    <link key="favicon" rel="icon" href="/favicon.png" />
     <meta key="og-url" property="og:url" content={url} />
     <meta key="og-title" property="og:title" content={title} />
     <meta key="og-description" property="og:description" content={description} />
