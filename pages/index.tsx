@@ -30,7 +30,7 @@ const Index: NextPage = () => {
   const router = useRouter()
   return (
     <Page>
-      <AppHead title="YouTube MP3 Downloader" />
+      <AppHead title="YouTube MP3 Downloader" url="/" />
       <BackCharacterRolling />
       <Title>Convert your favorite YouTube videos to mp3</Title>
       <SearchForm

@@ -6,15 +6,18 @@ import { FiGithub } from 'react-icons/fi'
 
 const About: NextPage = () => (
   <Page>
-    <AppHead title="About" />
+    <AppHead title="About" url="/about" />
     <h1>YouTube to MP3</h1>
     <h2>Your assistant for quality mp3</h2>
     <p>
-      <AppLink href="https://github.com/Liinking"><FiGithub/> @Liinkiing</AppLink>
+      <AppLink href="https://github.com/Liinking">
+        <FiGithub /> @Liinkiing
+      </AppLink>
     </p>
     <p>
-      <AppLink href="https://github.com/itsleaht"><FiGithub/> @itsleaht</AppLink>
-
+      <AppLink href="https://github.com/itsleaht">
+        <FiGithub /> @itsleaht
+      </AppLink>
     </p>
   </Page>
 )

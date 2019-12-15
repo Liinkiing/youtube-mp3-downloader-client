@@ -93,7 +93,7 @@ const Process: NextPage<Props> = ({ youtubeUrl }) => {
   }, [router, youtubeUrl])
   return (
     <Page>
-      {!request && <AppHead title="Loading..." />}
+      {!request && <AppHead title="Loading..." url="/process" />}
       {request && <AppHead title={`Processing ${request.youtubeUrl}...`} />}
       <ProcessStatus>
         <ProcessStatusInformations>

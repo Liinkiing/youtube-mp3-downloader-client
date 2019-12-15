@@ -1,9 +1,10 @@
 import React from 'react'
 import NextHead from 'next/head'
 
-const defaultDescription = ''
-const defaultOGURL = ''
-const defaultOGImage = ''
+const BASE_URL = process.env.NOW_ENV || process.env.BASE_URL || ''
+
+const defaultDescription = 'A beautiful online converter to get YouTube videos in MP3'
+const defaultOGImage = BASE_URL + '/images/og.png'
 
 interface Props {
   title?: string
@@ -23,10 +24,10 @@ const AppHead: React.FC<Props> = ({ title, description, url, socialImage }) => (
     <link key="icon" rel="icon" sizes="192x192" href="/touch-icon.png" />
     <link key="apple-touch-icon" rel="apple-touch-icon" href="/touch-icon.png" />
     <link key="favicon" rel="icon" href="/favicon.png" />
-    <meta key="og-url" property="og:url" content={url} />
+    <meta key="og-url" property="og:url" content={BASE_URL + url} />
     <meta key="og-title" property="og:title" content={title} />
     <meta key="og-description" property="og:description" content={description} />
-    <meta key="twitter-site" name="twitter:site" content={url} />
+    <meta key="twitter-site" name="twitter:site" content={BASE_URL + url} />
     <meta key="twitter-card" name="twitter:card" content="summary_large_image" />
     <meta key="twitter-image" name="twitter:image" content={socialImage} />
     <meta key="og-image" property="og:image" content={socialImage} />
@@ -38,7 +39,6 @@ const AppHead: React.FC<Props> = ({ title, description, url, socialImage }) => (
 AppHead.defaultProps = {
   title: process.env.NEXT_STATIC_APP_NAME || '',
   description: defaultDescription,
-  url: defaultOGURL,
   socialImage: defaultOGImage,
 }
 

@@ -59,7 +59,7 @@ const AudioRequestShow: NextPage<Props> = ({ hasError, request }) => {
   }
   return (
     <AudioPage>
-      <AppHead title={request.audio.title} />
+      <AppHead title={request.audio.title} url={`/audio/request/${request.id}`} />
       <h1>Your song is ready!</h1>
       <InformationsContainer>
         <SongCard>
