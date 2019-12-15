@@ -1,7 +1,6 @@
 import { NextPage } from 'next'
 import { FiArrowLeft, FiUser } from 'react-icons/fi'
 import AppHead from '~/components/AppHead'
-import ApiClient from '~/services/api-client'
 import { AudioRequest } from '~/@types/api'
 import { useRouter } from 'next/router'
 import Page from '~/components/layout/Page'
@@ -9,8 +8,9 @@ import styled from 'styled-components'
 import RippleButton from '~/components/ui/RippleButton'
 import SongCard from '~/components/ui/song-card'
 import DownloadIcon from '~/components/ui/graphics/DownloadIcon'
-import Link from 'next/link'
 import { breakpoint } from 'styled-components-breakpoint'
+import ApiClient from '~/services/api-client'
+import Link from 'next/link'
 
 interface Props {
   readonly hasError: boolean
@@ -41,7 +41,8 @@ const ActionsContainer = styled.div`
   margin-top: 2rem;
 `
 
-const DownloadButton = styled.a`
+const DownloadLink = styled(RippleButton)`
+  position: relative;
   margin-top: 30px;
   ${breakpoint('tablet')`
     margin-left: 30px;
@@ -72,12 +73,10 @@ const AudioRequestShow: NextPage<Props> = ({ hasError, request }) => {
             )}
           </SongCard.Body>
         </SongCard>
-        <DownloadButton href={request.audio._href.download}>
-          <RippleButton>
-            Download
-            <RippleButton.Icon as={DownloadIcon} />
-          </RippleButton>
-        </DownloadButton>
+        <DownloadLink variant="primary" onClick={() => window.open(request.audio._href.download, '_self')}>
+          Download
+          <RippleButton.Icon as={DownloadIcon} />
+        </DownloadLink>
       </InformationsContainer>
       <ActionsContainer>
         <Link href="/">

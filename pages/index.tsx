@@ -7,7 +7,6 @@ import CharacterRolling from '~/components/ui/graphics/CharacterRolling'
 import { useRouter } from 'next/router'
 import { breakpoint } from 'styled-components-breakpoint'
 
-
 const BackCharacterRolling = styled(CharacterRolling)`
   z-index: -1;
   position: fixed;
@@ -31,7 +30,7 @@ const Index: NextPage = () => {
   const router = useRouter()
   return (
     <Page>
-      <AppHead title="Homepage" />
+      <AppHead title="YouTube MP3 Downloader" />
       <BackCharacterRolling />
       <Title>Convert your favorite YouTube videos to mp3</Title>
       <SearchForm

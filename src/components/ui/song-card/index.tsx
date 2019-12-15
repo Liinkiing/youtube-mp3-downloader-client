@@ -3,6 +3,7 @@ import Body from '~/components/ui/song-card/body'
 import Cover from '~/components/ui/song-card/cover'
 import styled from 'styled-components'
 import { MAIN_BORDER_RADIUS, MAIN_BOX_SHADOW } from '~/styles/modules/variables'
+import { breakpoint } from 'styled-components-breakpoint'
 
 type SongCard = React.FC & { Body: typeof Body; Cover: typeof Cover }
 
@@ -13,13 +14,12 @@ const SongCardInner = styled.div`
   ${MAIN_BORDER_RADIUS};
   display: flex;
   max-width: 100%;
+  ${breakpoint('tablet')`
+    min-width: 650px;
+  `}
 `
 
-const SongCard: SongCard = ({ children }) => (
-  <SongCardInner>
-    {children}
-  </SongCardInner>
-)
+const SongCard: SongCard = ({ children }) => <SongCardInner>{children}</SongCardInner>
 
 SongCard.Body = Body
 SongCard.Cover = Cover

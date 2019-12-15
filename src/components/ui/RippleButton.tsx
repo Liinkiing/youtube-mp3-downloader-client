@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { DefaultTheme } from 'styled-components'
 import { theme } from '~/styles/themes'
 import { ripple } from '~/styles/houdini'
 import { motion } from 'framer-motion'
@@ -7,7 +7,7 @@ import { StyledClassName } from '~/@types'
 
 type Variant = 'primary' | 'secondary'
 
-interface Props extends React.HTMLAttributes<HTMLButtonElement> {
+export interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   readonly variant?: Variant
   readonly disabled?: boolean
   readonly onAnimationStart?: () => void
@@ -23,9 +23,9 @@ const RippleButtonInner = styled(motion.button)<{ variant: Variant }>`
   border-radius: 50px;
   outline: none;
   border: none;
-  background: ${props => theme(props).colors[props.variant]};
+  background: ${props => theme(props).colors[props.variant ?? 'primary']};
   @supports (background: paint(ripple)) {
-    background: ${props => theme(props).colors[props.variant]} paint(ripple);
+    background: ${props => theme(props).colors[props.variant ?? 'primary']} paint(ripple);
   }
   color: whitesmoke;
   font-family: inherit;
