@@ -19,7 +19,7 @@ const VideoRequest: React.FC<Props> = ({ url }) => {
     const doFetch = async () => {
       const match = await ApiClient.findAudioRequest(url)
       if (match) {
-        router.push(`/audio/request/[id]`, `/audio/request/${match.id}`)
+        router.replace(`/audio/request/[id]`, `/audio/request/${match.id}`)
       } else {
         setRequest(await ApiClient.postAudioRequest({ youtubeUrl: url }))
       }

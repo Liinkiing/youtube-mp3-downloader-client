@@ -66,7 +66,7 @@ const Process: NextPage<Props> = ({ youtubeUrl }) => {
       try {
         const match = await ApiClient.findAudioRequest(youtubeUrl)
         if (match) {
-          router.push(`/audio/request/[id]`, `/audio/request/${match.id}`)
+          router.replace(`/audio/request/[id]`, `/audio/request/${match.id}`)
         } else {
           setRequest(await ApiClient.postAudioRequest({ youtubeUrl }))
         }
