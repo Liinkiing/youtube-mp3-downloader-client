@@ -16,7 +16,9 @@ Array.prototype.first = function() {
   return this[0]
 }
 
-export const YOUTUBE_REGEX = new RegExp('^(http(s)?:\\/\\/)?((w){3}.)?youtu(be|.be)?(\\.com)?\\/watch\\?v=.+')
+export const YOUTUBE_REGEX = new RegExp(
+  '((^(http(s)?:\\/\\/)?((w){3}.)?youtube.com?\\/watch\\?v=.+)|(^(http(s)?:\\/\\/)?((w){3}.)?youtu.be?\\/.+))',
+)
 
 export const Emitter = new EventEmitter()
 
