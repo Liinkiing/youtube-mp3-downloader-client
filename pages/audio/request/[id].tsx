@@ -63,7 +63,7 @@ const AudioRequestShow: NextPage<Props> = ({ hasError, request }) => {
         title={request.audio.title}
         description={`Download the song "${request.audio.title}"${
           request.audio.artist ? ' by ' + request.audio.artist : ''
-        }"`}
+        }`}
         socialImage={request.audio.thumbnailUrl ?? undefined}
         url={`/audio/request/${request.id}`}
       />
