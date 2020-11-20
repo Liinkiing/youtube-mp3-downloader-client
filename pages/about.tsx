@@ -10,7 +10,7 @@ const About: NextPage = () => (
     <h1>YouTube to MP3</h1>
     <h2>Your assistant for quality mp3</h2>
     <p>
-      <AppLink href="https://github.com/Liinking">
+      <AppLink href="https://github.com/Liinkiing">
         <FiGithub /> @Liinkiing
       </AppLink>
     </p>
