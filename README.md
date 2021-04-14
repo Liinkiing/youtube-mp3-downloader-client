@@ -5,7 +5,7 @@
 </p>
 
 # YouTube mp3 downloader
-[https://ytomp3.now.sh](https://ytomp3.now.sh) (again, no name idea sorry 👼)
+[https://ytomp3.vercel.app/](https://ytomp3.vercel.app/) (again, no name idea sorry 👼)
 
 A small website made mainly as an excuse to test [Mercure](https://mercure.rocks) and 
 communication between a PHP process in a async message using [Messenger](https://github.com/symfony/messenger) 
